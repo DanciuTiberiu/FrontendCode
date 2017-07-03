@@ -1,0 +1,12 @@
+
+<div class="list" ng-controller="ColorsController">
+    <select ng-model="myColor" ng-options="color.text for color in colors">
+    </select>
+
+    <select ng-model="myColor2" ng-options="color.text group by color.type for color in colors" ng-change="changeColor()">
+    </select>
+
+    <span ng-class="colorClass">Some text</span>
+
+</div>
+
