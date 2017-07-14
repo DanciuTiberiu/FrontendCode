@@ -22,8 +22,8 @@ hrApp.controller('EmployeeEditController', ['$scope', '$http', '$routeParams', '
          * Persist an employee
          * @param addEmployee - employee to be persisted
          */
-        $scope.create = function (addEmployee) {
-            $http({url: CommonResourcesFactory.editEmployeeUrl, method: 'PUT', data: addEmployee})
+        $scope.create = function (employees) {
+            $http({url: CommonResourcesFactory.editEmployeeUrl, method: 'PUT', data: employees})
                 .success(function (data) {
                     $scope.employee = data;
                     $location.url('/employeeView/' + $scope.employee.employeeId);
@@ -31,7 +31,7 @@ hrApp.controller('EmployeeEditController', ['$scope', '$http', '$routeParams', '
         };
 
         $scope.delete = function (deleteEmployee) {
-            $http({url: CommonResourcesFactory.deleteEmployeeUrl, method: 'PUT', data: deleteEmployee})
+            $http({url: CommonResourcesFactory.deleteEmployeeUrl, method: 'DELETE', data: deleteEmployee})
                 .success(function (data) {
                     $scope.employee = data;
                     $location.url('/employeeList/');
